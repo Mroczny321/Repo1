@@ -1,0 +1,25 @@
+package testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Cw5_2 {
+
+	public static void main (String[] args) throws InterruptedException {
+		System.setProperty ( "webdriver.chrome.driver", "/home/mroczny/Documents/Webdriver/chromedriver") ;
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://pl.wikipedia.org/");
+		driver.findElement(By.id("searchInput")).sendKeys("2 wojna światowa");
+		driver.findElement(By.name("go")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Tekst')]")).click();
+		driver.findElement(By.cssSelector("body.mediawiki.ltr.sitedir-ltr.mw-hide-empty-elt.ns-0.ns-subject.page-II_wojna_światowa.rootpage-II_wojna_światowa.skin-vector.action-edit:nth-child(2) div.portal:nth-child(4) div.body:nth-child(2) ul:nth-child(1) li:nth-child(1) > a:nth-child(1)")).click();
+		driver.findElement(By.linkText("Tysiące wolontariuszy")).click();
+		driver.findElement(By.partialLinkText("wizja ruchu Wikimed")).click();
+		
+		Thread.sleep(5000);
+		driver.close();
+		driver.quit();
+	}
+}
