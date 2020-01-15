@@ -1,0 +1,28 @@
+package testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Cw6_2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "/home/mroczny/Documents/Webdriver/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://demoqa.com/");
+		driver.findElement(By.xpath("//*[@id=\"sidebar\"]/aside[2]/ul/li[4]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"userName\"]")).sendKeys("Mateusz");
+		driver.findElement(By.xpath("//*[@id=\"currentAddress\"]")).sendKeys("Koszalin");
+		driver.findElement(By.xpath("//*[@id=\"permanentAddress\"]")).sendKeys("Koszalin");
+		driver.findElement(By.xpath("//*[@id='submit']")).click();
+		driver.switchTo().alert().getText();
+		
+		Thread.sleep(5000);
+		
+		driver.close();
+		driver.quit();
+
+	}
+
+}
