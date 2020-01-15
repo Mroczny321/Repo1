@@ -1,0 +1,30 @@
+package testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
+public class Cw7_2_2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "/home/mroczny/Documents/Webdriver/chromedriver");
+		WebDriver driver = new ChromeDriver();
+				
+		driver.get("https://gmail.com/");
+		driver.findElement(By.xpath("//*[@id='identifierId']")).sendKeys("hokuspokusczarymarytwojastaratotwojstary");
+		driver.findElement(By.xpath("//*[@class='RveJvd snByac']")).click();
+		String elem = (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='o6cuMc']"))).getText();
+		Thread.sleep(5000);
+		
+		System.out.println(elem);
+		
+		driver.close();
+		driver.quit();
+
+	}
+
+}
